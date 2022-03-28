@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+.searchVideoContainer {
+  width: 85vw;
+  height: auto;
+  display: flex;
+  margin-top: auto;
+  margin-left: auto;
+  background-color: #f8f8f8;
+}
+
+.searchideoRow {
+  min-width: 85vw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 100px 40px 0px 40px;
+}
+.videoInformation {
+  /* given only 22% width  of videorow */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.videoThumbnail {
+  /*  taking 100 percent of what given */
+  width: 360px;
+  height: 202px;
+
+  background-color: white;
+}
+.videoThumbnail img {
+  /*  taking 100 percent of what given */
+  width: 360px;
+  height: 202px;
+  cursor: pointer;
+
+}
+
+.LogoAndInfoOfChannel {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 15px;
+}
+
+.videoTitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+   cursor: pointer;
+}
+
+.channelLogo img {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+}
+.channelLogoAndName {
+  display: flex;
+  flex-direction: row;
+}
+
+.channelInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.channelName {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.channelName p {
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+}
+.viewsAndUploadTimeOfVideo {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  padding-top: 5px;
+  font-weight: 500;
+  color: gray;
+}
+.views {
+  padding-right: 5px;
+}
+.uploadTime {
+  padding-left: 5px;
+}
+.videoDescription {
+  color: #606060;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

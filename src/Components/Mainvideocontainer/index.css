@@ -1,0 +1,122 @@
+.mainVideoContainer {
+  width: 100%;
+  height: auto;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8vh;
+}
+
+.videoRow {
+  min-width: 85vw;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 70px;
+  padding-right: 15px;
+}
+.videoInfo {
+  /* given only 22% width  of videorow */
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.videoPlayer {
+  /*  taking 100 percent of what given */
+  width: 100%;
+  height: 145px;
+  background-color: white;
+  margin-top: 5px;
+}
+.videoPlayer img {
+  /*  taking 100 percent of what given */
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+}
+
+.channelLogoAndInfo {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.channelDescription {
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.channelLogo img {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+}
+
+.channelInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+.channelName {
+  margin-top: 5px;
+}
+.channelName p {
+  font-size: 12px;
+  font-weight: 500;
+  color: gray;
+}
+.viewsAndUploadTime {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  padding-top: 5px;
+  font-weight: 500;
+  color: gray;
+}
+.views {
+  padding-right: 5px;
+}
+.uploadTime {
+  padding-left: 5px;
+}
+@media only screen and (max-width: 600px) {
+  .mainVideoContainer {
+    width: 100vw;
+    align-items: center;
+  }
+  .videoRow {
+    padding-right: 0px;
+    padding-top: 30px;
+  }
+  .videoInfo {
+    width: 100vw;
+    margin-bottom: 0px;
+  }
+  .videoPlayer {
+    width: 100vw;
+  }
+  .videoPlayer img {
+    width: 100%;
+    height: 180px;
+  }
+  .videoInfo {
+    margin: 0px;
+  }
+  .channelLogoAndInfo {
+    margin-top: 15px;
+    padding: 25px 20px 10px 20px;
+  }
+}

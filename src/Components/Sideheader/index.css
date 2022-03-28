@@ -1,0 +1,35 @@
+.sideHeader {
+  max-width: 15vw;
+  height: 92vh;
+  margin-top: 8vh;
+  position: fixed;
+  padding-top: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .sideHeader {
+    display: none;
+  }
+}
+.sideHeaderTopic {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+hr {
+  margin-bottom: 10px;
+  border: 1px solid #e9e9e9;
+}
+.sideHeaderTopic:hover {
+  background-color: #0000000d;
+}
+.sideHeaderTopic p {
+  padding-left: 25px;
+  font-size: 14px;
+}
+.sideHeaderTopic img {
+  padding-left: 9px;
+}

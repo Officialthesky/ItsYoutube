@@ -9,7 +9,7 @@ export default function SideheaderandContainer({ minimizeSideHeader,hideContaine
     <div className="sideHeaderAndContainer">
       <Sideheader minimizeSideHeader={minimizeSideHeader} />
       {hideContainer ? null :<Container minimizeSideHeader={minimizeSideHeader} />}
-      {hideSearchcontainer ? null : <Searchcontainer data={data}  />}
+      {hideSearchcontainer ? null : <Searchcontainer data={data} minimizeSideHeader={minimizeSideHeader} />}
     </div>
   );
 }

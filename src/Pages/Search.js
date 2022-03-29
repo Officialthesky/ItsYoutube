@@ -12,10 +12,9 @@ export default function Search() {
   //returns the location to any component
   //To get the second argument we pass with useNavigate
   const searchQuery = location.state.searchQuery;
+  
 
   const [data, setData] = useState([]); //data we get after search
-
-
 
 const fetchSearchVideos = () => {
     axios({
@@ -41,10 +40,17 @@ const fetchSearchVideos = () => {
     fetchSearchVideos();
   }, []);
 
+
+  const [minimizeSideHeader, setMinimizeSideHeader] = useState(true);
+  const toggleSideBar = () => {
+    setMinimizeSideHeader(!minimizeSideHeader);
+  };
+
+
   return (
     <React.Fragment>
-      <Header />
-      <SideheaderandContainer  hideContainer={true} hideSearchcontainer={false} data={data}/>
+      <Header toggleSideBar={toggleSideBar}/>
+      <SideheaderandContainer  hideContainer={true} hideSearchcontainer={false} data={data} minimizeSideHeader={minimizeSideHeader}/>
     </React.Fragment>
   );
 }

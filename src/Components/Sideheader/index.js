@@ -9,12 +9,12 @@ const minimizesidebarstyle = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  width: "6vw"
+  width: "6vw",
 };
 
 export default function Sideheader({ minimizeSideHeader }) {
   return (
-    <div className="sideHeader" >
+    <div className="sideHeader">
       {sideHeaderNavigation.map((nav, index) => {
         return (
           <React.Fragment key={index}>
@@ -24,7 +24,7 @@ export default function Sideheader({ minimizeSideHeader }) {
                   <div
                     style={{
                       backgroundColor: "rgb(230, 230, 230)",
-                      fontWeight: "600"
+                      fontWeight: "600",
                     }}
                     key={index}
                     className="sideHeaderTopic"

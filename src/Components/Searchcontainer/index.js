@@ -3,7 +3,7 @@ import "./index.css";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Searchcontainer({ data}) {
+export default function Searchcontainer({ data,minimizeSideHeader}) {
   //data as a props
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ export default function Searchcontainer({ data}) {
   };
 
   return (
-    <div className="searchVideoContainer">
+    <div className="searchVideoContainer"  style={{ width: !minimizeSideHeader && "94vw" }}>
       <div className="searchideoRow">
         <hr></hr>
         {/* //same data we have to map because we have to show this on search container  */}

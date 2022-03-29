@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Search from "./Pages/Search";
@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search/:searchQuery" element={<Search />} />
-          <Route path="/player/:videoId" element={<Player/>} />
+          <Route path="/player/:videoId" element={<Player />} />
         </Routes>
       </BrowserRouter>
     </React.Fragment>

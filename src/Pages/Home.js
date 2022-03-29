@@ -1,6 +1,6 @@
-import "../styles.css"
+import "../styles.css";
 import Header from "../Components/Header";
-import SideheaderandContainer from "../Components/SideheaderandContainer"
+import SideheaderandContainer from "../Components/SideheaderandContainer";
 import { useState } from "react";
 
 export default function Home() {
@@ -11,9 +11,11 @@ export default function Home() {
   return (
     <div className="App">
       <Header toggleSideBar={toggleSideBar} />
-      <SideheaderandContainer minimizeSideHeader={minimizeSideHeader} hideContainer={false} hideSearchcontainer={true}/>
+      <SideheaderandContainer
+        minimizeSideHeader={minimizeSideHeader}
+        hideContainer={false}
+        hideSearchcontainer={true}
+      />
     </div>
   );
 }
-
-

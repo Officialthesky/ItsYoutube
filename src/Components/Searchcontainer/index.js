@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 
-
-export default function Searchcontainer({ data,minimizeSideHeader}) {
+export default function Searchcontainer({ data, minimizeSideHeader }) {
   //data as a props
   const navigate = useNavigate();
 
-
-  const navigateToPlayThisVideo = (id) => {
+  const navigateToPlayThisVideo = (video) => {
     // navigate(`/player/${id}`);
-    console.log("withsearch ",id);
-    navigate(`/player/${id.videoId}`,{
-      state:{
-        id:id.videoId
-      }
+    navigate(`/player/${video.id.videoId}`, {
+      state: {
+        isSearch: true,
+        video,
+      },
     });
   };
 
   return (
-    <div className="searchVideoContainer"  style={{ width: !minimizeSideHeader && "94vw" }}>
+    <div
+      className="searchVideoContainer"
+      style={{ width: !minimizeSideHeader && "94vw" }}
+    >
       <div className="searchideoRow">
         <hr></hr>
         {/* //same data we have to map because we have to show this on search container  */}
@@ -30,12 +31,12 @@ export default function Searchcontainer({ data,minimizeSideHeader}) {
                 <img
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}
-                  onClick={() => navigateToPlayThisVideo(video.id)}
+                  onClick={() => navigateToPlayThisVideo(video)}
                 />
               </div>
               <div className="LogoAndInfoOfChannel">
                 <div className="videoTitle">
-                  <p onClick={() => navigateToPlayThisVideo(video.id)}>
+                  <p onClick={() => navigateToPlayThisVideo(video)}>
                     {video.snippet.title}
                   </p>
                 </div>

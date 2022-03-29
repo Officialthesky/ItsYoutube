@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
+import { API_KEY } from "../../Key";
 import "./index.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdKeyboardVoice } from "react-icons/md";
@@ -12,15 +12,11 @@ import { IoIosSearch } from "react-icons/io";
 import { IconContext } from "react-icons";
 import { FaChromecast } from "react-icons/fa";
 import axios from "axios";
-// export const API_KEY = "AIzaSyDrvLWLx-tKd0VN1Au-uak6V_zEkiiiYyM";
-// export const API_KEY = "AIzaSyAxKOdWEkF7FPBZUSumtCTjbjHQxhwesYc";
-export const API_KEY = "AIzaSyCcG_elmQt2JmQ-HuYobx8UcgyWesNOhOA";
 
 export default function Header({ toggleSideBar }) {
   const toggle = () => {
     toggleSideBar();
   };
-
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -28,7 +24,7 @@ export default function Header({ toggleSideBar }) {
     setSearchQuery(e.target.value);
   };
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchVideosInstart = () => {
@@ -44,21 +40,19 @@ const navigate = useNavigate();
           localStorage.setItem("videos", JSON.stringify(res.data.items));
         })
         .catch((error) => {
-          console.log(error,"ye hai error");
+          console.log(error, "ye hai error");
           // alert(error.response.data.error.message);
         });
     };
     fetchVideosInstart();
   }, []);
 
- 
-
   const searchNavigate = () => {
-//pass two arguments one to navigate and other for state 
-    navigate(`/search/${searchQuery}`,{
-      state:{
-        searchQuery
-      }
+    //pass two arguments one to navigate and other for state
+    navigate(`/search/${searchQuery}`, {
+      state: {
+        searchQuery,
+      },
     });
   };
 

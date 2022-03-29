@@ -8,26 +8,18 @@ export default function Mainvideocontainer({ selectedTag }) {
   const fetchVideosFromLocalStorage = JSON.parse(
     localStorage.getItem("videos")
   );
-  // console.log(fetchVideosFromLocalStorage);
+  
   useEffect(() => {
-    // const fltData = videoPlayerInfo.filter(
-    //   (item, index) => item?.tag === selectedTag?.toLowerCase()
-    // );
-    // if (selectedTag === "all") {
-    //   setMyFilteredData(videoPlayerInfo);
-    // } else {
-    //   setMyFilteredData(fltData);
-    // }
-
     setMyFilteredData(fetchVideosFromLocalStorage);
   }, [fetchVideosFromLocalStorage]);
 
   const navigate = useNavigate();
 
-  const navigateToPlayThisVideo = (id) => {
-    navigate(`/player/${id}`,{
+  const navigateToPlayThisVideo = (video) => {
+    navigate(`/player/${video.id}`,{
       state:{
-        id
+        isSearch:false,
+        video
       }
     });
   };
@@ -43,7 +35,8 @@ export default function Mainvideocontainer({ selectedTag }) {
                 <img
                   src={video.snippet.thumbnails.medium.url}
                   alt={video.snippet.title}
-                  onClick={() => navigateToPlayThisVideo(video.id)}
+                  onClick={() => navigateToPlayThisVideo(video)}
+                  // we need whole thing about video so passing video 
                 />
               </div>
               <div className="channelLogoAndInfo">
@@ -55,7 +48,7 @@ export default function Mainvideocontainer({ selectedTag }) {
                 </div>
                 <div className="channelInfo">
                   <div className="channelDescription">
-                    <p onClick={() => navigateToPlayThisVideo(video.id)}>
+                    <p onClick={() => navigateToPlayThisVideo(video)}>
                       {video.snippet.title}
                     </p>
                   </div>

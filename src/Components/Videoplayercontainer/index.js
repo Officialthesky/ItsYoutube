@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { API_KEY } from "../Header";
+import { API_KEY } from "../../Key";
+
 import "./index.css";
 import { AiOutlineLike } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-export default function Videoplayercontainer({ videoId }) {
+export default function Videoplayercontainer({ videoId, videoInfo }) {
   const [comments, setComments] = useState([]);
   const fetchComments = () => {
     axios({
@@ -53,6 +55,17 @@ export default function Videoplayercontainer({ videoId }) {
     fetchRecommendVideos();
   }, []);
 
+  const navigate = useNavigate();
+
+  const navigateToPlayThisVideo = (video) => {
+    navigate(`/player/${video.id.videoId}`, {
+      state: {
+        isSearch: true,
+        video,
+      },
+    });
+  };
+
   return (
     <div className="videoPlayerContainer">
       <div className="watchAndCommentsContainer">
@@ -66,6 +79,9 @@ export default function Videoplayercontainer({ videoId }) {
             allow="autoplay"
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
           ></iframe>
+          <div className="playingVideoInfo">
+            <h6 className="playingVideoTitle">{videoInfo.snippet.title}</h6>
+          </div>
           <hr></hr>
         </div>
 
@@ -111,12 +127,18 @@ export default function Videoplayercontainer({ videoId }) {
               <div className="recommendedVideoThumbnail">
                 <img
                   src={video.snippet?.thumbnails.medium.url}
+                  onClick={() => navigateToPlayThisVideo(video)}
                 />
                 {/* (why question mark used ?) (ternary operator) snippet will check if there is thumbnail then go further otherwise don't show error show blank */}
               </div>
               <div className="recommendedVideoInfo">
                 <h6>{video.snippet?.title}</h6>
-                <p className="channelName">{video.snippet?.channelTitle}</p>
+                <p
+                  className="channelName"
+                  onClick={() => navigateToPlayThisVideo(video)}
+                >
+                  {video.snippet?.channelTitle}
+                </p>
               </div>
             </div>
           );

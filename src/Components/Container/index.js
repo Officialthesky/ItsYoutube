@@ -4,7 +4,7 @@ import Searchcontainer from "../Searchcontainer";
 import Tagcontainer from "../Tagcontainer";
 import "./index.css";
 
-export default function Container({ minimizeSideHeader }) {
+export default function Container({ minimizeSideHeader, searchQuery }) {
   const [selectedTag, setSelectedTag] = useState("all");
 
   const tagHandler = (e) => {
@@ -22,7 +22,7 @@ export default function Container({ minimizeSideHeader }) {
         tagHandler={tagHandler}
         minimizeSideHeader={minimizeSideHeader}
       />
-      <Mainvideocontainer selectedTag={selectedTag} />
+      <Mainvideocontainer selectedTag={selectedTag} searchQuery={searchQuery} />
 
       <hr></hr>
     </div>

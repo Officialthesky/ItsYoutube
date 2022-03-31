@@ -9,16 +9,27 @@ export default function SideheaderandContainer({
   hideContainer,
   hideSearchcontainer,
   data,
+  fetchMoreSearchVideos,
+  loadMore,
+  searchQuery,
 }) {
   return (
     <div className="sideHeaderAndContainer">
       <Sideheader minimizeSideHeader={minimizeSideHeader} />
       {hideContainer ? null : (
-        <Container minimizeSideHeader={minimizeSideHeader} />
+        <Container
+          minimizeSideHeader={minimizeSideHeader}
+          searchQuery={searchQuery}
+        />
       )}
 
       {hideSearchcontainer ? null : (
-        <Searchcontainer data={data} minimizeSideHeader={minimizeSideHeader} />
+        <Searchcontainer
+          data={data}
+          minimizeSideHeader={minimizeSideHeader}
+          fetchMoreSearchVideos={fetchMoreSearchVideos}
+          loadMore={loadMore}
+        />
       )}
     </div>
   );

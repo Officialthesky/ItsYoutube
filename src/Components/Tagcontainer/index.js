@@ -2,11 +2,7 @@ import React from "react";
 import "./index.css";
 import { tagNames } from "./data";
 
-export default function Tagcontainer({ minimizeSideHeader, tagHandler }) {
-  const filteredData = (tags) => {
-    tagHandler(tags);
-  };
-
+export default function Tagcontainer({ minimizeSideHeader }) {
   return (
     <div
       className="tagContainer"
@@ -19,7 +15,6 @@ export default function Tagcontainer({ minimizeSideHeader, tagHandler }) {
         return (
           <div key={index} className="tags">
             <p
-              onClick={() => filteredData(tags)}
               style={
                 isActive ? { backgroundColor: "black", color: "white" } : {}
               }

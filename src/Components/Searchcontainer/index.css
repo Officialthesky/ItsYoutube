@@ -4,6 +4,8 @@
   width: 85vw;
   height: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-top: auto;
   margin-left: auto;
   background-color: #f8f8f8;
@@ -104,4 +106,18 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.loader{
+  width: 30px;
+height:30px;
+border-radius:25px;
+border-left:5px solid white;
+border-right:5px solid red;
+border-top:5px solid red;
+border-bottom:5px solid red;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
 }

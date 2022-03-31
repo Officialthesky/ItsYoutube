@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { API_KEY } from "../../Key";
 import "./index.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { MdKeyboardVoice } from "react-icons/md";
@@ -11,49 +9,16 @@ import { BsBell } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import { IconContext } from "react-icons";
 import { FaChromecast } from "react-icons/fa";
-import axios from "axios";
 
-export default function Header({ toggleSideBar }) {
+export default function Header({ toggleSideBar, saveNews, searchNavigate }) {
   const toggle = () => {
     toggleSideBar();
   };
-
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const saveNews = (e) => {
-    setSearchQuery(e.target.value);
+  const saveTheNews = (e) => {
+    saveNews(e);
   };
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchVideosInstart = () => {
-      axios({
-        method: "GET",
-        url: `https://youtube.googleapis.com/youtube/v3/videos?q=${searchQuery}&part=snippet&maxResults=200&regionCode=IN&chart=mostPopular&key=${API_KEY}`,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((res) => {
-          localStorage.setItem("videos", JSON.stringify(res.data.items));
-        })
-        .catch((error) => {
-          console.log(error, "ye hai error");
-          // alert(error.response.data.error.message);
-        });
-    };
-    fetchVideosInstart();
-  }, []);
-
-  const searchNavigate = () => {
-    //pass two arguments one to navigate and other for state
-    navigate(`/search/${searchQuery}`, {
-      state: {
-        searchQuery,
-      },
-    });
+  const navigateToSearchPage = () => {
+    searchNavigate();
   };
 
   return (
@@ -81,10 +46,13 @@ export default function Header({ toggleSideBar }) {
           placeholder="Search"
           type="text"
           spellCheck="false"
-          onChange={saveNews}
+          onChange={(e) => saveTheNews(e)}
         />
         <IconContext.Provider value={{ size: 24, className: "searchClick" }}>
-          <div className="searchClickBox" onClick={searchNavigate}>
+          <div
+            className="searchClickBox"
+            onClick={() => navigateToSearchPage()}
+          >
             <IoIosSearch />
           </div>
         </IconContext.Provider>
